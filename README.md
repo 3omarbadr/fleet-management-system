@@ -144,11 +144,6 @@ GET /v1/stations
 }
 ```
 
-#### Get Stations by City
-```http
-GET /v1/stations/by-city?city=Cairo
-```
-
 #### Get Station by ID
 ```http
 GET /v1/stations/{id}
@@ -219,26 +214,6 @@ GET /v1/trips/available-seats?start_station_id=1&end_station_id=5&date=2025-06-2
 }
 ```
 
-#### Get Available Seats (Multiple Routes)
-```http
-POST /v1/trips/available-seats-multiple
-Content-Type: application/json
-
-{
-  "segments": [
-    {
-      "start_station_id": 1,
-      "end_station_id": 2
-    },
-    {
-      "start_station_id": 4,
-      "end_station_id": 5
-    }
-  ],
-  "date": "2025-06-26"
-}
-```
-
 #### Get Scheduled Trips
 ```http
 GET /v1/trips/scheduled?date=2025-06-26
@@ -299,49 +274,6 @@ Content-Type: application/json
 ```http
 GET /v1/bookings
 Authorization: Bearer {token}
-```
-
-## 📁 Postman Collection Structure
-
-### Import Instructions:
-1. Open Postman
-2. Click "Import" button
-3. Create new collection: "Fleet Management System API"
-4. Create the following folder structure:
-
-```
-Fleet Management System API
-├── 📁 Authentication
-│   ├── 📄 Register User
-│   │   └── POST {{base_url}}/auth/register
-│   ├── 📄 Login User  
-│   │   └── POST {{base_url}}/auth/login
-│   ├── 📄 Get Current User
-│   │   └── GET {{base_url}}/auth/user
-│   └── 📄 Logout User
-│       └── POST {{base_url}}/auth/logout
-│
-├── 📁 Stations
-│   ├── 📄 Get All Stations
-│   │   └── GET {{base_url}}/v1/stations
-│   ├── 📄 Get Stations by City
-│   │   └── GET {{base_url}}/v1/stations/by-city?city=Cairo
-│   └── 📄 Get Station by ID
-│       └── GET {{base_url}}/v1/stations/1
-│
-├── 📁 Trips & Availability
-│   ├── 📄 Get Available Seats (Single)
-│   │   └── GET {{base_url}}/v1/trips/available-seats
-│   ├── 📄 Get Available Seats (Multiple)
-│   │   └── GET {{base_url}}/v1/trips/available-seats-multiple
-│   └── 📄 Get Scheduled Trips
-│       └── GET {{base_url}}/v1/trips/scheduled
-│
-└── 📁 Bookings (Protected)
-    ├── 📄 Create Booking
-    │   └── POST {{base_url}}/v1/bookings
-    └── 📄 Get My Bookings
-        └── GET {{base_url}}/v1/bookings
 ```
 
 ### Environment Variables:
